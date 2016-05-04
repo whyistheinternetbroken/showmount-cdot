@@ -1,0 +1,15 @@
+#!/bin/bash
+
+hostname=$2;
+username="vsadmin";
+password="netapp123";
+########################################
+# Please do not edit below this line   #
+######################################## 
+
+if [[ $1 == "-e" || $1 == "--export" ]]; then
+	    python /usr/sbin/showmount.py $hostname $username $password
+else
+	    echo "Original showmount call:"
+ 	    /usr/sbin/showmount_old	$@
+fi
